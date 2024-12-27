@@ -7,6 +7,7 @@ import { BASE_URL } from '../utils/constants';
 const Login = () => {
   const [emailId, setEmailId] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const submitLogin = async () => {
@@ -22,7 +23,7 @@ const Login = () => {
       dispatch(addUser(res.data.data));
       navigate('/');
     } catch (err) {
-      return err.message;
+      setError(err?.response?.data || 'ERROR : LOGIN FAILED');
     }
   };
   return (
@@ -62,6 +63,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
+          {error && <p className="text-error">{error}</p>}
           <div className="card-actions justify-end my-4">
             <button type="submit" className="btn btn-primary">
               Submit

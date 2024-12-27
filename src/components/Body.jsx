@@ -12,7 +12,7 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
-  const checkLogin = async () => {
+  const fetchUser = async () => {
     if (userData) return;
     try {
       const res = await axios.get(BASE_URL + '/profile/view', {
@@ -28,7 +28,7 @@ const Body = () => {
     }
   };
   useEffect(() => {
-    checkLogin();
+    fetchUser();
   }, []);
   return (
     <div className="flex flex-col min-h-screen">
