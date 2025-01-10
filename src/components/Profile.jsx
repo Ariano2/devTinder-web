@@ -80,7 +80,6 @@ const Profile = () => {
             </label>
             <select
               defaultValue={user.gender}
-              value={gender}
               onChange={(e) => {
                 setGender(e.target.value);
               }}
