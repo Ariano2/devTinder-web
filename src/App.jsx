@@ -7,6 +7,7 @@ import Connections from './components/Connections.jsx';
 import { Provider } from 'react-redux';
 import appStore from './utils/appStore.js';
 import Body from './components/Body.jsx';
+import Requests from './components/Requests.jsx';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="login" element={<Login />}></Route>
             <Route path="connections" element={<Connections />}></Route>
             <Route path="profile" element={<Profile />}></Route>
+            <Route path="connectionRequests" element={<Requests />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

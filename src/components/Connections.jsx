@@ -18,9 +18,19 @@ const Connections = () => {
     }
   };
   useEffect(() => {
-    if (!connections) getConnections();
+    getConnections();
   }, []);
   if (!connections) return;
+  if (connections.length === 0) {
+    return (
+      <div className="flex flex-col gap-10 items-center my-10 text-2xl text-white font-bold">
+        You have no Connections
+        <p className="text-xl">
+          Please head over to the feed to find friends and make new connections
+        </p>
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col items-center gap-10 justify-center my-10 text-2xl text-white font-bold">
       <h1>Connections</h1>
