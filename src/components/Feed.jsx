@@ -9,7 +9,6 @@ const Feed = () => {
   const dispatch = useDispatch();
   const feed = useSelector((store) => store.feed);
   const getFeed = async () => {
-    if (feed) return;
     try {
       const res = await axios.get(BASE_URL + '/feed', {
         withCredentials: true,
@@ -22,8 +21,18 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
+  if (!feed) return;
+  if (feed.length <= 0)
+    return (
+      <div className="flex flex-col gap-10 items-center my-10 text-2xl text-white font-bold">
+        FEED: Looks like you've run out of matches!
+        <p className="text-xl">
+          Please come back again later to find new matches!!
+        </p>
+      </div>
+    );
   return (
-    <div className="mx-auto my-auto">{feed && <UserCard user={feed[1]} />}</div>
+    <div className="mx-auto my-auto">{feed && <UserCard user={feed[0]} />}</div>
   );
 };
 
