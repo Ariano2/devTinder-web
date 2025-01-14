@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 
-import Login from './components/login.jsx';
+import Login from './components/Login.jsx';
 import Profile from './components/Profile.jsx';
 import Feed from './components/Feed.jsx';
 import Connections from './components/Connections.jsx';
