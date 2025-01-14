@@ -27,7 +27,7 @@ const NavBar = () => {
         </Link>
       </div>
       {user && (
-        <div>
+        <div className="hidden lg:inline-block">
           <span>Hello {user.firstName}</span>
         </div>
       )}

@@ -42,7 +42,7 @@ const Requests = () => {
   if (connectionRequestList.length === 0) {
     return (
       <div className="flex  justify-center my-10 text-2xl text-white font-bold">
-        No Pending Friend Requests
+        <h1>No Pending Friend Requests</h1>
       </div>
     );
   }

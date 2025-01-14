@@ -25,7 +25,7 @@ const Feed = () => {
   if (feed.length <= 0)
     return (
       <div className="flex flex-col gap-10 items-center my-10 text-2xl text-white font-bold">
-        FEED: Looks like you've run out of matches!
+        <h1>FEED: Looks like you have run out of matches! </h1>
         <p className="text-xl">
           Please come back again later to find new matches!!
         </p>

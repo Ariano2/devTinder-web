@@ -24,7 +24,7 @@ const Connections = () => {
   if (connections.length === 0) {
     return (
       <div className="flex flex-col gap-10 items-center my-10 text-2xl text-white font-bold">
-        You have no Connections
+        <h1>You have no Connections, Yet!</h1>
         <p className="text-xl">
           Please head over to the feed to find friends and make new connections
         </p>

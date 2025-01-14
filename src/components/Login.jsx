@@ -5,6 +5,9 @@ import { addUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router';
 import { BASE_URL } from '../utils/constants';
 const Login = () => {
+  const [isLoginForm, setIsLoginForm] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [emailId, setEmailId] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -26,17 +29,69 @@ const Login = () => {
       setError(err?.response?.data || 'ERROR : LOGIN FAILED');
     }
   };
+  const submitSignUp = async () => {
+    try {
+      const res = await axios.post(
+        BASE_URL + '/signup',
+        {
+          firstName,
+          lastName,
+          emailId,
+          password,
+        },
+        { withCredentials: true }
+      );
+      dispatch(addUser(res.data.data));
+      navigate('/profile');
+    } catch (err) {
+      setError(err?.response?.data || 'ERROR : LOGIN FAILED');
+    }
+  };
   return (
     <div className="mt-auto">
       <form
         className="card mx-auto bg-neutral text-neutral-content w-96"
         onSubmit={(e) => {
           e.preventDefault();
-          submitLogin();
+          if (isLoginForm) {
+            submitLogin();
+            return;
+          }
+          submitSignUp();
         }}
       >
         <div className="card-body items-center text-center">
-          <h2 className="card-title">Login</h2>
+          <h2 className="card-title">{isLoginForm ? 'Login' : 'Sign Up'}</h2>
+          {!isLoginForm && (
+            <>
+              <label className="form-control w-full max-w-xs">
+                <div className="label">
+                  <span className="label-text">firstName</span>
+                </div>
+                <input
+                  type="text"
+                  placeholder="Your FirstName"
+                  className="input input-bordered w-full max-w-xs"
+                  required
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </label>
+              <label className="form-control w-full max-w-xs">
+                <div className="label">
+                  <span className="label-text">lastName</span>
+                </div>
+                <input
+                  type="text"
+                  placeholder="Your LastName"
+                  className="input input-bordered w-full max-w-xs"
+                  required
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </label>
+            </>
+          )}
           <label className="form-control w-full max-w-xs">
             <div className="label">
               <span className="label-text">Email ID</span>
@@ -66,9 +121,15 @@ const Login = () => {
           {error && <p className="text-error">{error}</p>}
           <div className="card-actions justify-end my-4">
             <button type="submit" className="btn btn-primary">
-              Submit
+              {isLoginForm ? 'Login' : 'Sign Up'}
             </button>
           </div>
+          <p
+            onClick={() => setIsLoginForm(!isLoginForm)}
+            className="cursor-pointer hover:text-red-400"
+          >
+            {isLoginForm ? 'New User? Sign Up' : 'Already a User? Login'}
+          </p>
         </div>
       </form>
     </div>

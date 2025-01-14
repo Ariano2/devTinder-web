@@ -42,7 +42,7 @@ const Profile = () => {
             </div>
           </div>
         )}
-        <div className="flex gap-10 px-[20%] py-10">
+        <div className="flex flex-col my-4 gap-5 items-center lg:flex lg:flex-row lg:gap-10 lg:px-[20%] lg:py-10">
           <div className="card-body items-center text-center bg-base-200">
             <h2 className="card-title">Update Profile</h2>
             <label className="form-control w-full max-w-xs">
@@ -126,7 +126,7 @@ const Profile = () => {
               </button>
             </div>
           </div>
-          <div>
+          <div className="pointer-events-none">
             <UserCard
               user={{ firstName, lastName, age, photoUrl, gender, about }}
             />
