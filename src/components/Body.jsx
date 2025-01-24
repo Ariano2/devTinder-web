@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 
 const Body = () => {
+  const theme = useSelector((store) => store.theme) || 'light';
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
@@ -30,6 +31,14 @@ const Body = () => {
   useEffect(() => {
     fetchUser();
   }, []);
+  const setTheme = (theme) => {
+    const rootHTML = document.querySelector('html');
+    if (theme === 'light') rootHTML?.setAttribute('data-theme', 'cyberpunk');
+    else rootHTML?.setAttribute('data-theme', 'dark');
+  };
+  useEffect(() => {
+    setTheme(theme);
+  }, [theme]);
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar />

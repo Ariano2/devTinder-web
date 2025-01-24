@@ -23,7 +23,7 @@ const Connections = () => {
   if (!connections) return;
   if (connections.length === 0) {
     return (
-      <div className="flex flex-col gap-10 items-center my-10 text-2xl text-white font-bold">
+      <div className="flex flex-col gap-10 items-center my-10 text-2xl font-bold text-primary-content">
         <h1>You have no Connections, Yet!</h1>
         <p className="text-xl">
           Please head over to the feed to find friends and make new connections
@@ -32,9 +32,9 @@ const Connections = () => {
     );
   }
   return (
-    <div className="flex flex-col items-center gap-10 justify-center my-10 text-2xl text-white font-bold">
+    <div className="flex flex-col items-center gap-10 justify-center my-10 text-2xl font-bold">
       <h1>Connections</h1>
-      <ul className="flex flex-col gap-10">
+      <ul className="flex flex-col gap-10 text-primary">
         {connections.map((connection) => {
           if (connection.fromUserId?._id) {
             const { firstName, lastName, about, photoUrl, age, gender } =
@@ -47,8 +47,10 @@ const Connections = () => {
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title">{firstName + ' ' + lastName}</h2>
-                  {age && gender && <p>{age + ', ' + gender}</p>}
-                  {<p>{about}</p>}
+                  {age && gender && (
+                    <p className="text-lg md:text-2xl">{age + ', ' + gender}</p>
+                  )}
+                  {<p className="text-lg md:text-2xl">{about}</p>}
                 </div>
               </li>
             );
@@ -64,9 +66,9 @@ const Connections = () => {
                 <div className="card-body">
                   <h2 className="card-title">{firstName + ' ' + lastName}</h2>
                   {age && gender && (
-                    <p className="card-title">{age + ', ' + gender}</p>
+                    <p className="text-lg md:text-2xl">{age + ', ' + gender}</p>
                   )}
-                  {<p className="card-title text-sm">{about}</p>}
+                  {<p className="text-lg md:text-2xl">{about}</p>}
                 </div>
               </li>
             );

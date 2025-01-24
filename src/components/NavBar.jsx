@@ -4,6 +4,7 @@ import { BASE_URL } from './../utils/constants';
 import axios from 'axios';
 import { removeUser } from '../utils/userSlice';
 import { removeConnections } from '../utils/connectionSlice';
+import { toggleTheme } from '../utils/themeSlice';
 const NavBar = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -22,9 +23,22 @@ const NavBar = () => {
   return (
     <div className="navbar bg-base-300">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-3xl">
+        <Link to="/" className="btn btn-ghost text-xl lg:text-3xl">
           👨‍💻DevTinder👩‍💻
         </Link>
+      </div>
+      <div className="form-control mx-2">
+        <label className="label cursor-pointer">
+          <span className="label-text mx-1">Theme</span>
+          <input
+            onClick={() => {
+              dispatch(toggleTheme());
+            }}
+            type="checkbox"
+            className="toggle"
+            defaultChecked
+          />
+        </label>
       </div>
       {user && (
         <div className="hidden lg:inline-block">

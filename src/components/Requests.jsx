@@ -41,13 +41,13 @@ const Requests = () => {
   if (!connectionRequestList) return;
   if (connectionRequestList.length === 0) {
     return (
-      <div className="flex  justify-center my-10 text-2xl text-white font-bold">
+      <div className="flex  justify-center my-10 text-2xl font-bold">
         <h1>No Pending Friend Requests</h1>
       </div>
     );
   }
   return (
-    <div className="flex flex-col items-center gap-10 justify-center my-10 text-2xl text-white font-bold">
+    <div className="flex flex-col items-center gap-10 justify-center my-10 text-2xl text-primary font-bold">
       <h1>Friend Requests</h1>
       <ul className="flex flex-col gap-10">
         {connectionRequestList.map((con) => {
@@ -69,19 +69,19 @@ const Requests = () => {
                   <div className="card-actions justify-center my-2">
                     <button
                       onClick={() => {
-                        reviewRequest('accepted', con._id);
-                      }}
-                      className="btn btn-primary mx-2"
-                    >
-                      Accept
-                    </button>
-                    <button
-                      onClick={() => {
                         reviewRequest('rejected', con._id);
                       }}
                       className="btn btn-secondary mx-2"
                     >
                       Reject
+                    </button>
+                    <button
+                      onClick={() => {
+                        reviewRequest('accepted', con._id);
+                      }}
+                      className="btn btn-primary mx-2"
+                    >
+                      Accept
                     </button>
                   </div>
                 </div>

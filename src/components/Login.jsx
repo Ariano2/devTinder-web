@@ -50,6 +50,7 @@ const Login = () => {
   return (
     <div className="mt-auto">
       <form
+        data-theme="dark"
         className="card mx-auto bg-neutral text-neutral-content w-96"
         onSubmit={(e) => {
           e.preventDefault();
@@ -71,7 +72,7 @@ const Login = () => {
                 <input
                   type="text"
                   placeholder="Your FirstName"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full max-w-xs text-white"
                   required
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
@@ -84,7 +85,7 @@ const Login = () => {
                 <input
                   type="text"
                   placeholder="Your LastName"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full max-w-xs text-white"
                   required
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
@@ -99,20 +100,20 @@ const Login = () => {
             <input
               type="text"
               placeholder="example@gmail.com"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs text-white"
               required
               value={emailId}
               onChange={(e) => setEmailId(e.target.value)}
             />
           </label>
-          <label className="my-2 form-control w-full max-w-xs">
+          <label className="my-2 form-control w-full max-w-xs text-primary-content">
             <div className="label">
               <span className="label-text">Password</span>
             </div>
             <input
               type="text"
               placeholder="Enter your password!"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs text-white"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
