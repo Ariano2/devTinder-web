@@ -34,7 +34,7 @@ const Connections = () => {
   return (
     <div className="flex flex-col items-center gap-10 justify-center my-10 text-2xl font-bold">
       <h1>Connections</h1>
-      <ul className="flex flex-col gap-10 text-primary">
+      <ul className="flex flex-col gap-10 text-primary md:mx-[10%]">
         {connections.map((connection) => {
           if (connection.fromUserId?._id) {
             const { firstName, lastName, about, photoUrl, age, gender } =
