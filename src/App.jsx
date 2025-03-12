@@ -14,6 +14,7 @@ import CancellationAndRefund from './components/legal/CancellationAndRefund.jsx'
 import ShippingAndDelivery from './components/legal/ShippingAndDelivery.jsx';
 import AboutUs from './components/company/AboutUs.jsx';
 import ContactUs from './components/company/ContactUs.jsx';
+import Chat from './components/Chat.jsx';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="termsAndConditions" element={<TermsAndConditions />} />
             <Route path="cancelAndRefund" element={<CancellationAndRefund />} />
             <Route path="shipping" element={<ShippingAndDelivery />} />
+            <Route path="chat/:targetId" element={<Chat />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

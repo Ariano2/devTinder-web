@@ -21,9 +21,9 @@ const NavBar = () => {
     }
   };
   return (
-    <div className="navbar bg-base-300">
+    <div className="navbar bg-base-300 z-10">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-xl lg:text-3xl">
+        <Link to="/" className="btn btn-ghost text-md md:text-3xl">
           👨‍💻DevTinder👩‍💻
         </Link>
       </div>
@@ -35,7 +35,7 @@ const NavBar = () => {
               dispatch(toggleTheme());
             }}
             type="checkbox"
-            className="toggle"
+            className="toggle rounded-xl"
             defaultChecked
           />
         </label>

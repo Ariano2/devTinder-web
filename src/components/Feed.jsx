@@ -24,7 +24,7 @@ const Feed = () => {
   if (!feed) return;
   if (feed.length <= 0)
     return (
-      <div className="flex flex-col gap-10 items-center my-10 text-2xl text-white font-bold">
+      <div className="flex flex-col gap-10 items-center my-10 text-2xl text-base-content font-bold">
         <h1>FEED: Looks like you have run out of matches! </h1>
         <p className="text-xl">
           Please come back again later to find new matches!!
@@ -32,7 +32,12 @@ const Feed = () => {
       </div>
     );
   return (
-    <div className="mx-auto my-auto">{feed && <UserCard user={feed[0]} />}</div>
+    <div className="stack mx-auto my-10">
+      {feed &&
+        feed.map((user, index) => {
+          return <UserCard key={feed[index]._id} user={feed[index]} />;
+        })}
+    </div>
   );
 };
 
